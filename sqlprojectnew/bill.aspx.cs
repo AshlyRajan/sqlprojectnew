@@ -37,5 +37,41 @@ namespace sqlprojectnew
             GridView1.DataSource = ds;
             GridView1.DataBind();
         }
+
+        
+        protected void Button1_Click(object sender, EventArgs e)
+        {
+            Panel1.Visible = true;
+        }
+        protected void Button2_Click(object sender, EventArgs e)
+        {
+            SqlCommand cmd = new SqlCommand();
+            cmd.CommandType = CommandType.StoredProcedure;
+            cmd.CommandText = "sp_accountdetails";
+            cmd.Parameters.AddWithValue("@uid", Session["userid"]);
+            cmd.Parameters.AddWithValue("@accno", TextBox1.Text);
+            cmd.Parameters.AddWithValue("acctype", TextBox2.Text);
+            cmd.Parameters.AddWithValue("@accbal", TextBox3.Text);
+            cmd.Parameters.AddWithValue("@status", "Active");
+            SqlParameter sp = new SqlParameter();
+            sp.DbType = DbType.Int32;
+            sp.ParameterName = "@sta";
+            sp.Direction = ParameterDirection.Output;
+            cmd.Parameters.Add(sp);
+            conobj.fn_nonquery_sp(cmd);
+            int i = Convert.ToInt32(sp.Value);
+            if(i==1)
+            {
+                Response.Redirect("payment.aspx");
+            }
+            else
+            {
+                Label7.Text = "invalid account deatils";
+            }
+
+
+
+        }
+
     }
 }

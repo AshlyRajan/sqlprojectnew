@@ -29,6 +29,19 @@ namespace sqlprojectnew
             con.Close();
             return i;
         }
+        public void fn_nonquery_sp(SqlCommand cmd)//insert,delete,update
+        {
+            if (con.State == ConnectionState.Open)
+            {
+                con.Close();
+            }
+
+            cmd.Connection = con;
+            con.Open();
+            cmd.ExecuteNonQuery();
+            con.Close();
+            
+        }
         public string fn_scalar(string sqlqurey)//scalar functions
         {
             if (con.State == ConnectionState.Open)

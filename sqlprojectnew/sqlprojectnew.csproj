@@ -44,6 +44,8 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.ServiceModel" />
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />
     <Reference Include="System.Web.ApplicationServices" />
@@ -71,8 +73,10 @@
     <Content Include="addcategory.aspx" />
     <Content Include="addproductr.aspx" />
     <Content Include="admin.aspx" />
+    <Content Include="adminbill.aspx" />
     <Content Include="adminhome.aspx" />
     <Content Include="bill.aspx" />
+    <Content Include="bill.jpg" />
     <Content Include="buy.html" />
     <Content Include="cart.aspx" />
     <Content Include="category.jpg" />
@@ -81,6 +85,38 @@
     <Content Include="category\images %282%29.jpg" />
     <Content Include="category\images %283%29.jpg" />
     <Content Include="category\images.jpg" />
+    <Content Include="Feedback.aspx" />
+    <Content Include="feedback.png" />
+    <Content Include="mailreply.aspx" />
+    <Content Include="replyfeedback.aspx" />
+    <Content Include="WebForm1.aspx" />
+    <None Include="Connected Services\paymentService1\Service.wsdl" />
+    <None Include="Connected Services\paymentService1\Service.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\paymentService1\Service1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\paymentService1\Service2.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <Content Include="Connected Services\paymentService1\sqlprojectnew.paymentService1.CompositeType.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <None Include="Connected Services\paymentService\Service.disco" />
+    <None Include="Connected Services\paymentService\configuration91.svcinfo" />
+    <None Include="Connected Services\paymentService\configuration.svcinfo" />
+    <None Include="Connected Services\paymentService\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+    <None Include="Connected Services\paymentService1\Service.disco" />
+    <None Include="Connected Services\paymentService1\configuration91.svcinfo" />
+    <None Include="Connected Services\paymentService1\configuration.svcinfo" />
+    <None Include="Connected Services\paymentService1\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
     <Content Include="contact.html" />
     <Content Include="css\bootstrap.css" />
     <Content Include="css\responsive.css" />
@@ -129,6 +165,7 @@
     <Content Include="ORDER\images %283%29.jpg" />
     <Content Include="ORDER\images %284%29.jpg" />
     <Content Include="ORDER\images.jpg" />
+    <Content Include="payment.aspx" />
     <Content Include="producthome.aspx" />
     <Content Include="userhome.aspx" />
     <Content Include="userreg.aspx" />
@@ -156,6 +193,13 @@
     <Compile Include="admin.aspx.designer.cs">
       <DependentUpon>admin.aspx</DependentUpon>
     </Compile>
+    <Compile Include="adminbill.aspx.cs">
+      <DependentUpon>adminbill.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="adminbill.aspx.designer.cs">
+      <DependentUpon>adminbill.aspx</DependentUpon>
+    </Compile>
     <Compile Include="adminhome.aspx.cs">
       <DependentUpon>adminhome.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -177,7 +221,24 @@
     <Compile Include="cart.aspx.designer.cs">
       <DependentUpon>cart.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Connected Services\paymentService1\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="Connected Services\paymentService\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
     <Compile Include="Connection.cs" />
+    <Compile Include="Feedback.aspx.cs">
+      <DependentUpon>Feedback.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Feedback.aspx.designer.cs">
+      <DependentUpon>Feedback.aspx</DependentUpon>
+    </Compile>
     <Compile Include="itemhome.aspx.cs">
       <DependentUpon>itemhome.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -192,6 +253,20 @@
     <Compile Include="login.aspx.designer.cs">
       <DependentUpon>login.aspx</DependentUpon>
     </Compile>
+    <Compile Include="mailreply.aspx.cs">
+      <DependentUpon>mailreply.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="mailreply.aspx.designer.cs">
+      <DependentUpon>mailreply.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="payment.aspx.cs">
+      <DependentUpon>payment.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="payment.aspx.designer.cs">
+      <DependentUpon>payment.aspx</DependentUpon>
+    </Compile>
     <Compile Include="producthome.aspx.cs">
       <DependentUpon>producthome.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -200,6 +275,13 @@
       <DependentUpon>producthome.aspx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="replyfeedback.aspx.cs">
+      <DependentUpon>replyfeedback.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="replyfeedback.aspx.designer.cs">
+      <DependentUpon>replyfeedback.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Site1.Master.cs">
       <DependentUpon>Site1.Master</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -221,10 +303,30 @@
     <Compile Include="userreg.aspx.designer.cs">
       <DependentUpon>userreg.aspx</DependentUpon>
     </Compile>
+    <Compile Include="WebForm1.aspx.cs">
+      <DependentUpon>WebForm1.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="WebForm1.aspx.designer.cs">
+      <DependentUpon>WebForm1.aspx</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <Content Include="css\style.css.map" />
     <Content Include="css\style.scss" />
+    <None Include="Connected Services\paymentService\Service.wsdl" />
+    <None Include="Connected Services\paymentService\Service.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\paymentService\Service1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\paymentService\Service2.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <Content Include="Connected Services\paymentService\sqlprojectnew.paymentService.CompositeType.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
     <None Include="packages.config" />
     <Content Include="Site1.Master" />
     <None Include="Web.Debug.config">
@@ -236,6 +338,13 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="photo\" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Connected Services\" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadataStorage Include="Connected Services\paymentService1\" />
+    <WCFMetadataStorage Include="Connected Services\paymentService\" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

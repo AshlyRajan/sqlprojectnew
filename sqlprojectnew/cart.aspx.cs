@@ -89,14 +89,14 @@ namespace sqlprojectnew
                     pq = Convert.ToDecimal(dr1["qauntity"]);
                     tp = Convert.ToInt32(dr1["total_price"]);
                  }
-                string ins1 = "insert into order_tb values(" + pid + "," + Session["userid"] + "," + pq + "," + tp + ",'" + DateTime.Now.ToString() + "')";
+                string ins1 = "insert into order_tb values(" + pid + "," + Session["userid"] + "," + pq + "," + tp + ",'" + DateTime.Now.ToString("MM/dd/yyyy HH:MM:ss") + "','ordered')";
                 int s = conobj.fn_nonquery(ins1);
                 string dl = "delete from cart where product_id=" + pid + "and user_id=" + Session["userid"] + "";
                 int p = conobj.fn_nonquery(dl);
                  }
             
-            decimal x = Convert.ToDecimal(Label6.Text);
-            string ins = "insert into bill_tb values(" + Session["userid"] + "," + x + ",'" + DateTime.Now.ToString() + "','ordered')";
+            int x = Convert.ToInt32(Label6.Text);
+            string ins = "insert into bill_tb values(" + Session["userid"] + "," + x + ",'" + DateTime.Now.ToString("MM/dd/yyyy HH:MM:ss") + "','ordered')";
             conobj.fn_nonquery(ins);
             Response.Redirect("bill.aspx");
 
